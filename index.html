@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Bharat | AI Civic Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="orange">Smart</span><span class="blue">Bharat</span>
+        </div>
+        <div class="nav-controls">
+            <select id="languageSelect">
+                <option value="English">English</option>
+                <option value="Hindi">हिन्दी</option>
+                <option value="Tamil">தமிழ்</option>
+                <option value="Bengali">বাংলা</option>
+                <option value="Marathi">मराठी</option>
+                <option value="Telugu">తెలుగు</option>
+                <option value="Kannada">ಕನ್ನಡ</option>
+            </select>
+            <button id="themeToggle" title="Toggle Dark Mode">🌓</button>
+            <button id="fontToggle" title="Accessibility: Larger Font">A+</button>
+        </div>
+    </nav>
+
+    <main id="app">
+        <header class="hero">
+            <h1>Empowering Every <span class="gradient-text">Indian Citizen</span></h1>
+            <p>Your one-stop AI gateway for schemes, services, and civic action.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="assistant">AI Assistant</button>
+            <button class="tab-btn" data-tab="schemes">Schemes</button>
+            <button class="tab-btn" data-tab="report">Report Issue</button>
+            <button class="tab-btn" data-tab="track">Track</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <section id="assistant" class="tab-content active">
+            <div class="chat-container">
+                <div id="chatHistory" class="chat-history">
+                    <div class="ai-msg">Namaste! I am your Smart Bharat assistant. How can I help you today?</div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="userInput" placeholder="Ask about Aadhar, PM-Kisan, or local issues...">
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="report" class="tab-content">
+            <div class="form-card">
+                <h2>Report a Civic Issue</h2>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="issueCategory">
+                        <option>Potholes / Road Repair</option>
+                        <option>Garbage Disposal</option>
+                        <option>Street Lights</option>
+                        <option>Water Supply</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description & Location</label>
+                    <textarea id="issueDesc" placeholder="Describe the problem..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Photo Attachment (Optional)</label>
+                    <input type="file" id="issueImg" accept="image/*">
+                </div>
+                <button id="draftBtn" class="secondary-btn">AI Draft Complaint</button>
+                <div id="aiDraft" class="draft-preview hidden"></div>
+                <button id="submitComplaint" class="primary-btn">Submit Official Report</button>
+            </div>
+        </section>
+
+        <section id="track" class="tab-content">
+            <div class="track-card">
+                <h2>Track Your Complaint</h2>
+                <div class="search-box">
+                    <input type="text" id="trackId" placeholder="Enter Reference ID (e.g., SB-2025-...)">
+                    <button id="trackBtn">Check Status</button>
+                </div>
+                <div id="trackResult"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
